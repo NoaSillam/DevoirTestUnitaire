@@ -65,13 +65,17 @@ public class ConditionTest {
         // Test 1 = Pour la catégorie Livre
 
         int expResult = 30;
-        result = Condition.CalculerMontantMaxCategorie("Livre");
-        
+        int result = Condition.CalculerMontantMaxCategorie("Livre");
+        asserEquals(expResult, result);
         // Test 2 = Pour la catégorie Jouet
 
-        
+         expResult = 50;
+        result = Condition.CalculerMontantMaxCategorie("Jouet");
+        asserEquals(expResult, result);
         // Test 3 = Pour la catégorie Informatique
-
+        expResult = 1000;
+        result = Condition.CalculerMontantMaxCategorie("Informatique");
+        asserEquals(expResult, result);
     }
 
     /**
@@ -99,7 +103,8 @@ public class ConditionTest {
         
         // Test 1 = Je ne suis pas membre
 
-        
+        boolean expResult = false;
+        boolean result = Condition.CalculerReductionMembre(expResult)
         // Test 2 = Je suis membre
 
 
@@ -122,6 +127,10 @@ public class ConditionTest {
     }
 
     private void asserEquals(boolean expResult, boolean result) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void asserEquals(int expResult, int result) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
