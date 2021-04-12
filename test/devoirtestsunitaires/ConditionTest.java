@@ -48,12 +48,12 @@ public class ConditionTest {
         
         boolean expResult = true;
         boolean result = Condition.Valider(5);
-        asserEquals(expResult, result);
+        assertEquals(expResult, result);
         // Test 2 = le nombre de jours dépasse 30 jours
          
         expResult = false;
         result = Condition.Valider(63);
-        asserEquals(expResult, result);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -66,16 +66,18 @@ public class ConditionTest {
 
         int expResult = 30;
         int result = Condition.CalculerMontantMaxCategorie("Livre");
-        asserEquals(expResult, result);
+        assertEquals(expResult, result);
+        
         // Test 2 = Pour la catégorie Jouet
 
          expResult = 50;
         result = Condition.CalculerMontantMaxCategorie("Jouet");
-        asserEquals(expResult, result);
+        assertEquals(expResult, result);
+        
         // Test 3 = Pour la catégorie Informatique
         expResult = 1000;
         result = Condition.CalculerMontantMaxCategorie("Informatique");
-        asserEquals(expResult, result);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -85,7 +87,21 @@ public class ConditionTest {
     public void testCalculerMontantRembourse() {
         
         // Test 1 = nbJours = 20 ; Catégorie = Livre ; Etat = Abimé ; Membre = true ; Prix = 50
-
+        boolean nbJours = true;
+        boolean resultat = Condition.Valider(20);
+        assertEquals(nbJours, resultat);
+        int prix = 50;
+        int categorie = Condition.CalculerMontantMaxCategorie("Livre");
+        assertEquals(prix, categorie);
+        boolean membre = true;
+        double reductionMembre = Condition.CalculerReductionMembre(true);
+        assertEquals(membre, reductionMembre);
+        double expResult = 0.3;
+        double result = Condition.CalculerReductionEtat("Abimé");
+        assertEquals(expResult, result);
+        
+        
+        
         
         
         // Test 2 = nbJours = 15 ; Catégorie = Livre ; Etat = Très abimé ; Membre = false ; Prix = 24
@@ -104,9 +120,12 @@ public class ConditionTest {
         // Test 1 = Je ne suis pas membre
 
         boolean expResult = false;
-        boolean result = Condition.CalculerReductionMembre(expResult)
+        double result = Condition.CalculerReductionMembre(false);
+        assertEquals(expResult, result);
         // Test 2 = Je suis membre
-
+        expResult = true;
+        result = Condition.CalculerReductionMembre(true);
+        assertEquals(expResult, result);
 
     }
 
@@ -117,13 +136,19 @@ public class ConditionTest {
     public void testCalculerReductionEtat() {
         
         // Test 1 = Pour un état Abimé
-
+        double expResult = 15;
+        double result = Condition.CalculerReductionEtat("Abimé");
+        assertEquals(expResult, result);
         
         // Test 2 = Pour un état Très abimé
-
+         expResult = 33;
+        result = Condition.CalculerReductionEtat("Très Abimé");
+        assertEquals(expResult, result);
         
         // Test 3 = Pour un état Neuf
-
+        expResult = 55;
+        result = Condition.CalculerReductionEtat("Neuf");
+        assertEquals(expResult, result);
     }
 
     private void asserEquals(boolean expResult, boolean result) {
@@ -131,6 +156,14 @@ public class ConditionTest {
     }
 
     private void asserEquals(int expResult, int result) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void asserEquals(boolean expResult, double result) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void asserEquals(double expResult, double result) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
