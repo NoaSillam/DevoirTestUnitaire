@@ -105,10 +105,32 @@ public class ConditionTest {
         
         
         // Test 2 = nbJours = 15 ; Catégorie = Livre ; Etat = Très abimé ; Membre = false ; Prix = 24
-
+         nbJours = true;
+         resultat = Condition.Valider(15);
+        assertEquals(nbJours, resultat);
+         prix = 24;
+         categorie = Condition.CalculerMontantMaxCategorie("Livre");
+        assertEquals(prix, categorie);
+         membre = true;
+         reductionMembre = Condition.CalculerReductionMembre(false);
+        assertEquals(membre, reductionMembre);
+         expResult = 0.3;
+         result = Condition.CalculerReductionEtat("Très Abimé");
+        assertEquals(expResult, result);
 
         // Test 3 = nbJours = 15 ; Catégorie = Livre ; Etat = Neuf ; Membre = true ; Prix = 24
-
+         nbJours = true;
+         resultat = Condition.Valider(15);
+        assertEquals(nbJours, resultat);
+         prix = 24;
+         categorie = Condition.CalculerMontantMaxCategorie("Livre");
+        assertEquals(prix, categorie);
+         membre = true;
+         reductionMembre = Condition.CalculerReductionMembre(true);
+        assertEquals(membre, reductionMembre);
+         expResult = 0.3;
+         result = Condition.CalculerReductionEtat("Neuf");
+        assertEquals(expResult, result);
     }
 
     /**
