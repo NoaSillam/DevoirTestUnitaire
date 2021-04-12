@@ -69,7 +69,7 @@ public class Condition
    
     //methode 3
     // Permet de retourner le total remboursé en fonction de tous les critères
-   /* public static boolean CalculerMontantRembourse(int unNbDeJours, String uneCategorie,
+    public static boolean CalculerMontantRembourse(int unNbDeJours, String uneCategorie,
             boolean estMembre, String unEtat,
             int unPrix)
     {
@@ -141,7 +141,7 @@ public class Condition
             return rembourser;
         
 
-    }*/
+    }
     //methode 4
     // Permet de renvoyer la réduction si on est membre ou pas
     // Membre  = 0.0
